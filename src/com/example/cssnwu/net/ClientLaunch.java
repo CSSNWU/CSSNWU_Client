@@ -10,6 +10,8 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import com.example.cssnwu.databaseservice.DatabaseFactory;
+
 /**
  * Class <code>ClientLaunch.java</code> test in Client,the client calls a remote method
  * on a remote object,and returns the results. 
@@ -19,18 +21,23 @@ import java.rmi.RemoteException;
  * @since JDK1.7
  */
 public class ClientLaunch {
-	
-	private static  IDataRemoteService iDataRemoteService;
+	public static final String IP = "127.0.0.1";            //ip地址
+	public static final int PORT = 8888;                    //端口号
+	private static  DatabaseFactory databaseFactory;
 	
 	
 	/**
 	 * Title: main
 	 * Description:start the program
+	 * @throws RemoteException 
 	 */
-	public static void main(String[] args){
-		while(iDataRemoteService==null){
+	public static void main(String[] args) throws RemoteException{
+		
+		while(databaseFactory==null){
 			init();
 		}
+		
+
 	}
 
 	/**
@@ -39,43 +46,40 @@ public class ClientLaunch {
 	 */
 	public static void init(){
 		try {
-			setIDataRemoteService((IDataRemoteService)Naming.lookup("rmi://localhost:8888/IDataRemoteService"));
+			setDatabaseFactory((DatabaseFactory)Naming.lookup("rmi://" + IP + ":" + PORT + "/cssnwu"));
 
 			System.out.println("连接成功~~");
 
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	/**
 	 * 
-	 * Title: getiDataRemoteService
-	 * Description:Singlton; only exist one IDataRemoteService while the program is running
-	 * @return IDataRemoteService 
+	 * Title: getDatabaseFactory
+	 * Description:Singlton; only exist one DatabaseFactory while the program is running
+	 * @return DatabaseFactory 
 	 */
 	
-	public static IDataRemoteService getiDataRemoteService() {
-		if(iDataRemoteService!=null)
-			return iDataRemoteService;
+	public static DatabaseFactory getDatabaseFactory() {
+		if(databaseFactory != null)
+			return databaseFactory;
 		init();
-		return iDataRemoteService;
+		return databaseFactory;
 	}
 	
     /**
-     * Title: setIDataRemoteService
-     * Description:set the IDataRemoteService
-     * @param remote IDataRemoteService
+     * Title: setDatabaseFactory
+     * Description:set the DatabaseFactory
+     * @param remote DatabaseFactory
      */
-	public static  void setIDataRemoteService(IDataRemoteService remote) {
-		iDataRemoteService = remote;
+	public static  void setDatabaseFactory(DatabaseFactory remote) {
+		databaseFactory = remote;
 	}
 
 
