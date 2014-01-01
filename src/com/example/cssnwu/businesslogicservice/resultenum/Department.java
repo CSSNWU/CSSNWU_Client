@@ -13,5 +13,5 @@ package com.example.cssnwu.businesslogicservice.resultenum;
  * @since JDK1.7
  */
 public enum Department {
-
+    软件学院,地理学院,信管学院,商学院,环境学院
 }

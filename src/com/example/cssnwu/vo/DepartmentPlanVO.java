@@ -6,10 +6,8 @@
 package com.example.cssnwu.vo;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.example.cssnwu.businesslogicservice.resultenum.Department;
-import com.example.cssnwu.po.DepartmentPlanPO;
 
 /**
  *Class <code>DepartmentPlanVO.java</code> 连接表现层和逻辑层的DepartmentPlanVO
@@ -19,13 +17,19 @@ import com.example.cssnwu.po.DepartmentPlanPO;
  * @since JDK1.7
  */
 public class DepartmentPlanVO extends VO {
-	public Date date;                           //年份
 	public Department department;               //院系
-    public ArrayList<CourseVO> courseList;      //课程安排
-    
-	public DepartmentPlanPO toPO() {
-		DepartmentPlanPO departmentPlanPO = new DepartmentPlanPO();
-		
-		return departmentPlanPO;
-	}
+	public int[] minCreditPerSeason=new int[4];            //每学年最低学分安排
+    public ArrayList<CourseVO> courseList = new ArrayList<CourseVO>();      //课程安排
+    /**Title:getInformation
+     * Description:
+     * @return
+     */
+    public String getInformation()
+    {    //String result=department.toString();
+    	String result=String.valueOf(department); 
+    	result=result+" "+minCreditPerSeason[0]+" "+minCreditPerSeason[1]+
+        		        " "+minCreditPerSeason[2]+" "+
+        		            minCreditPerSeason[3];
+    	return result;
+    }
 }

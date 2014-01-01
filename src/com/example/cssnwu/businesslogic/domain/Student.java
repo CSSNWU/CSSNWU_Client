@@ -46,8 +46,9 @@ public class Student extends DomainObject {
 		StudentPO studentPO = (StudentPO) studentDatabaseService.find(studentId);
 
 		//PO转化为VO
-		for(CoursePO coursePO:studentPO.getCourseList()) {
+		for(CoursePO coursePO:studentPO.getCoursePOList()) {
 			voList.add(PoToVo.transformCoursePO(coursePO));
+			System.out.println(coursePO.getScore());
 		}
 
 		return voList;
@@ -68,12 +69,12 @@ public class Student extends DomainObject {
 		StudentPO studentPO = (StudentPO) studentDatabaseService.find(studentId);
 
 		//PO转化为VO
-		for(CoursePO coursePO:studentPO.getCourseList()) {
-			//判断学期是否符合
-			if(coursePO.getEstablishTime().equals(semester)) {
-				voList.add(PoToVo.transformCoursePO(coursePO));
-			}
-		}
+//		for(CoursePO coursePO:studentPO.getCourseList()) {
+//			//判断学期是否符合
+//			if(coursePO.getEstablishTime().equals(semester)) {
+//				voList.add(PoToVo.transformCoursePO(coursePO));
+//			}
+//		}
 
 		return voList;
 	}

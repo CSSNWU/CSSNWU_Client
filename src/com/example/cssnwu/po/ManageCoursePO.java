@@ -37,5 +37,20 @@ public class ManageCoursePO extends PO{
 	public ArrayList<CoursePO> getCourseList() {
 		return courseList;
 	}
+	
+	//setter·½·¨
+	public void setStudentPO(StudentPO studentPO) {
+		this.studentPO = studentPO;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public void setManageCourseType(ManageCourseType manageCourseType) {
+		this.manageCourseType = manageCourseType;
+	}
+	public void setCourseList(ArrayList<CoursePO> courseList) {
+		this.courseList = courseList;
+	}
     
+	
 }

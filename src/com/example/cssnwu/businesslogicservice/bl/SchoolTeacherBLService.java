@@ -15,6 +15,7 @@ import com.example.cssnwu.vo.DepartmentPlanVO;
 import com.example.cssnwu.vo.SchoolStrategyVO;
 import com.example.cssnwu.vo.StudentVO;
 import com.example.cssnwu.vo.TeacherVO;
+import com.example.cssnwu.vo.VO;
 
 /**
  *Class <code>SchoolTeacherBLService.java</code> 连接表现层和逻辑层和学校教务老师对象有关的接口
@@ -105,4 +106,12 @@ public interface SchoolTeacherBLService {
      * @throws RemoteException 
      */
     public ArrayList<StudentVO> getDropStudents() throws RemoteException;
+    /**
+     * Title: addNewStudent
+     * Description:增加新的学生统计信息
+     * @param list
+     * @return
+     * @throws RemoteException
+     */
+    public boolean addNewStudent(ArrayList<VO> list) throws RemoteException;
 }

@@ -15,7 +15,8 @@ import com.example.cssnwu.businesslogicservice.resultenum.UserType;
 import com.example.cssnwu.databaseservice.DatabaseFactory;
 import com.example.cssnwu.databaseservice.DatabaseService;
 import com.example.cssnwu.net.ClientLaunch;
-import com.example.cssnwu.po.UserPO;
+import com.example.cssnwu.po.*;
+;
 
 /**
  *Class <code>User.java</code> User领域对象
@@ -27,11 +28,16 @@ import com.example.cssnwu.po.UserPO;
 public class User extends DomainObject{
     private DatabaseFactory df = null;
     private DatabaseService userDatabaseService = null;
+    private DatabaseService studentDatabaseService = null;
+    private DatabaseService teacherDatabaseService=null;
+//    private DatabaseService 
     
     //构造方法，初始化
     public User() throws RemoteException{
     	df = ClientLaunch.getDatabaseFactory();
     	userDatabaseService = df.getUserDatabaseService();
+    	studentDatabaseService = df.getStudentDatabaseService();
+    	teacherDatabaseService=df.getTeacherDatabaseService();
     }
     
     /**
@@ -46,19 +52,50 @@ public class User extends DomainObject{
      */
     public LOGIN_RESULT login(int id,String password,UserType userType) throws RemoteException{
         //通过id获取UserPO
-    	UserPO userPO = (UserPO) userDatabaseService.find(id);
-        
+    	UserPO userPO=null;
+    	switch(userType)
+    	{  case Student:
+    		{
+    	
+    		  userPO = (StudentPO) studentDatabaseService.find(id);
+    		  System.out.println("跳入switch");
+    		  break;
+    		}
+    	case Teacher:
+    	{
+    		userPO=(TeacherPO) teacherDatabaseService.find(id);
+    		break;
+    	}
+    	case SchoolTeacher:
+    	{  userPO=(TeacherPO) teacherDatabaseService.find(id);
+    	   break;	
+    	}
+    	case DepartmentTeacher:
+    	{   userPO=(TeacherPO) teacherDatabaseService.find(id);
+    		break;
+    	} 
+    	}
+    	
+     
+       // UserPO userPO = (StudentPO) studentDatabaseService.find(id);
     	//判断用户是否存在
     	if (userPO == null) {
         	return LOGIN_RESULT.用户不存在;
         }
     	
+    	System.out.println("我刚刚调用了数据库，，，，");
+    	System.out.println(password);
+    	System.out.println(userPO.getPassword());
     	//判断用户是否登陆
     	if (userPO.isLogin()) {
+    		System.out.println("has logined");
     		return LOGIN_RESULT.用户已登录;
     	} else if (userPO.getPassword().equals(password)) {  //判断密码是否正确
     		//判断服务器修改登陆状态是否成功
-    	    if(userDatabaseService.update(userPO, "isLogin", 1)) {   
+    	    if(true
+    	    		//userDatabaseService.update(userPO, "isLogin", "1")
+    	    		) {
+    	    	
     	    	return LOGIN_RESULT.登录成功;
     	    } else {
     	    	return LOGIN_RESULT.服务端错误;
@@ -109,19 +146,30 @@ public class User extends DomainObject{
     	//通过id获取UserPO
     	UserPO userPO = (UserPO) userDatabaseService.find(id);
     	
+    	
+    	
+    	System.out.println("----------------------------------------------");
+    	
+    	
+    	
     	//判断用户是否存在
     	if(userPO == null) {
     		return LOGOUT_RESULT.用户不存在;
     	} else {
     		
     		//判断服务器更改登陆状态是否成功
-    		if(userDatabaseService.update(userPO, "isLogin", 0)) {
+    		if(userDatabaseService.update(userPO, "isLogin", "0")) {
     			return LOGOUT_RESULT.退出成功;
     		} else {
 				return LOGOUT_RESULT.服务端错误;
 			}
     	}
     }
+
+	public String findName(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
 }

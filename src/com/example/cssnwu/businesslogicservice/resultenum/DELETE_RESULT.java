@@ -13,5 +13,5 @@ package com.example.cssnwu.businesslogicservice.resultenum;
  * @since JDK1.7
  */
 public enum DELETE_RESULT {
-    删除成功,服务器端错误,要删除的内容不存在,删除失败
+    删除成功,服务器端错误,要删除的内容不存在,删除失败,课程是直选课程不可退选
 }

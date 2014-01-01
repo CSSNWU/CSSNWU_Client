@@ -38,6 +38,7 @@ public class LoginController implements LoginBLService{
 	public LOGIN_RESULT login(int id, String password, UserType userType)
 			throws RemoteException {
 		return user.login(id, password, userType);
+		//return LOGIN_RESULT.µÇÂ¼³É¹¦;
 	}
 
 	/* (non-Javadoc)

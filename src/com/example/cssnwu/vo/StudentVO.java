@@ -20,6 +20,24 @@ public class StudentVO extends UserVO{
 	 public Department department;            //所在院系
 	 public String grade;                     //年级
 	 public double gpa;                       //学分绩
-	 public ArrayList<CourseVO> courseList;   //课程列表
+	 public ArrayList<String> courseList = new ArrayList<String>();   //课程列表
 	 public Department targetDepartment;      //目标院系（有转院需求的学生，一般学生该属性为空）
+	public String gender;
+	public String year;
+	 public String getTransferInformation()
+	 {   String result;
+	     result=id+" "+userName+" "+department+" "+grade+" "+gpa+" "+targetDepartment;
+		
+		 return result;
+	 }
+	 public String getInformation()
+	 {   String result;
+	     result=id+" "+userName+" "+department+" "+grade+" "+gpa;
+		 return result;
+	 }
+	 public String getDropInformation()
+	 {
+		 String result=id+" "+userName+" "+department+" "+grade;
+		 return result;
+	 }
 }

@@ -27,7 +27,6 @@ public interface LoginBLService {
 	 * @param id        用户ID
 	 * @param password  密码
 	 * @param userType  用户类别
-	 * @param department 院系（学校教务老师为空）
 	 * @return          登陆请求操作的结果
 	 * @throws RemoteException
 	 */

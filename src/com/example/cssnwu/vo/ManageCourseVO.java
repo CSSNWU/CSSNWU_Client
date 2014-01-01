@@ -21,5 +21,15 @@ public class ManageCourseVO extends VO{
 	public StudentVO studentVO;                 //管理课程学生
     public Date date;                           //管理课程时间
     public ManageCourseType manageCourseType;   //管理课程类型（选课/退选）
-    public ArrayList<CourseVO> courseList;      //管理课程列表
+    public ArrayList<CourseVO> courseList = new ArrayList<CourseVO>();      //管理课程列表
+    /**clear
+     * 清除对象中的成员变量信息。
+     */
+    public void clear()
+    {    studentVO=null;
+    	 date=null;
+    	 manageCourseType=null;
+    	 courseList=new ArrayList<CourseVO>();
+    	 
+    }
 }

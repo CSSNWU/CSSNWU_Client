@@ -1,5 +1,5 @@
 /**
- * @(#)Studentcontroller.java     	2013-10-10 ÉÏÎç10:30:54
+ * @(#)StudentController.java     	2013-10-10 ï¿½ï¿½ï¿½ï¿½10:30:54
  * Copyright never.All rights reserved
  * never PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
@@ -14,27 +14,27 @@ import com.example.cssnwu.businesslogicservice.resultenum.TRANSFER_RESULT;
 import com.example.cssnwu.vo.CourseVO;
 
 /**
- *Class <code>Studentcontroller.java</code> Ñ§ÉúµÄ¿ØÖÆÆ÷
+ *Class <code>StudentController.java</code> Ñ§ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  * @author never
  * @version 2013-10-10
  * @since JDK1.7
  */
-public class Studentcontroller implements StudentBLService {
+public class StudentController implements StudentBLService {
     Student student = null;
     
     /**
-     * ¹¹Ôì·½·¨
+     * ï¿½ï¿½ï¿½ì·½ï¿½ï¿½
      * @throws RemoteException
      */
-    public Studentcontroller() throws RemoteException {
+    public StudentController() throws RemoteException {
     	student = new Student();
     }
     
 	/* (non-Javadoc)
 	 * Title: getCourses
-	 * Description:Í¨¹ýID»ñÈ¡¸ÃÑ§ÉúµÄ¿Î³ÌÁÐ±í
-	 * @see com.example.cssnwu.businesslogicservice.bl.StudentBLService#getCourses(int)
+	 * Description:Í¨ï¿½ï¿½IDï¿½ï¿½È¡ï¿½ï¿½Ñ§ï¿½ï¿½Ä¿Î³ï¿½ï¿½Ð±ï¿½
+	 * @see com.example.cssnwu.busxinesslogicservice.bl.StudentBLService#getCourses(int)
 	 */
 	@Override
 	public ArrayList<CourseVO> getCourses(int studentId) throws RemoteException {
@@ -43,7 +43,7 @@ public class Studentcontroller implements StudentBLService {
 
 	/* (non-Javadoc)
 	 * Title: getTransferInfo
-	 * Description:²é¿´×¼Èë×¼³öÐÅÏ¢
+	 * Description:ï¿½é¿´×¼ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @see com.example.cssnwu.businesslogicservice.bl.StudentBLService#getTransferInfo(int)
 	 */
 	@Override
@@ -53,7 +53,7 @@ public class Studentcontroller implements StudentBLService {
 
 	/* (non-Javadoc)
 	 * Title: getCoursesBySemester
-	 * Description:¸ù¾ÝÑ§ÆÚ²é¿´Ñ§Éú¿Î³Ì
+	 * Description:ï¿½ï¿½ï¿½Ñ§ï¿½Ú²é¿´Ñ§ï¿½ï¿½Î³ï¿½
 	 * @see com.example.cssnwu.businesslogicservice.bl.StudentBLService#getCoursesBySemester(int, java.lang.String)
 	 */
 	@Override

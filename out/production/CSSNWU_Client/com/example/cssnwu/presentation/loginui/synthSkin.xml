@@ -1,0 +1,56 @@
+<synth>
+    <!-- Style that all regions will use -->
+    <style id="backingStyle">
+        <!-- Make all the regions opaque-->
+        <opaque value="TRUE"/>
+        <font name="Dialog" size="12"/>
+
+        <state>
+            <imagePainter method="PanelBackground" path="background.jpg" 
+                          sourceInsets="0 0 0 0"/>
+            <!-- Provide default colors -->
+            <!--<color value="#D8D987" type="BACKGROUND"/>-->
+            <!--<color value="RED" type="FOREGROUND"/>-->
+        </state>
+    </style>
+    <bind style="backingStyle" type="region" key="Panel"/>
+    <style id="buttonStyle">
+        <!-- Shift the text one pixel when pressed -->
+        <opaque value="false"/>
+        <property key="Button.textShiftOffset" type="integer" value="1"/>
+        <insets top="15" left="20" right="20" bottom="15"/>
+        <state>
+            <imagePainter method="buttonBackground" path="button1.png"
+                          sourceInsets="10 10 10 10"/>
+        </state>
+        <state value="PRESSED">
+            <imagePainter method="buttonBackground" path="button2.png"
+                          sourceInsets="10 10 10 10"/>
+        </state>
+    </style>
+    <!-- Bind buttonStyle to all JButtons -->
+    <bind style="buttonStyle" type="region" key="button"/>
+    <style id="LabelBackground">
+           <property key="Panel.textShiftOffset" type="integer" value="1"/>
+           <insets top="50" left="50" right="50" bottom="50"></insets>
+        <color value="#D8D987" type="BACKGROUND"/>
+        <color value="RED" type="FOREGROUND"/>
+    </style>
+    <!--<bind style="LabelBackground" type="region" key="Label"/>-->
+    <style id="textfield">
+        <opaque value="true"/>
+        <state>
+            <font  name="" size="14"/>
+            <color value="#D2DFF2" type="BACKGROUND"/>
+            <color value="#000000" type="TEXT_FOREGROUND"/>
+        </state>
+        <!--<imagePainter method="textFieldBorder" path="images/textfield.png"-->
+                      <!--sourceInsets="4 6 4 6" paintCenter="false"/>-->
+        <insets top="4" left="6" bottom="4" right="6"/>
+    </style>
+    <bind style="textfield" type="region" key="TextField"/>
+    <bind style="textfield" type="region" key="ComboBox"/>
+    <bind style="textfield" type="region" key="TextArea"/>
+    <bind style="textfield" type="region" key="PasswordField"/>
+    <bind style="textfield" type="region" key="Label"/>
+</synth>

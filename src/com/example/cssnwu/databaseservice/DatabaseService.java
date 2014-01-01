@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.example.cssnwu.businesslogicservice.resultenum.SYSTEM_STATE;
 import com.example.cssnwu.po.PO;
 
 /**
@@ -131,4 +132,21 @@ public interface DatabaseService extends Remote,Serializable{
      * @throws RemoteException
      */
     public void finish() throws RemoteException;
+    /**
+     * Title: checkSystemState
+     * Description:检查系统状态，如果数据库中对应状态为0则用户不能进行操作，如果数据库中对应状态为1则用户可以操作
+     * @throws RemoteException
+     */
+    public boolean checkSystemState(SYSTEM_STATE system_state) throws RemoteException;
+    /**
+     * Description :设定系统状态
+     * @param system_state
+     * @param isUseful
+     * @return
+     * @throws RemoteException
+     */
+    public boolean setSystemState(SYSTEM_STATE system_state,boolean isUseful) throws RemoteException;
+    
+    
 }
+

@@ -5,7 +5,6 @@
  */
 package com.example.cssnwu.vo;
 
-import com.example.cssnwu.po.SchoolStrategyPO;
 
 /**
  *Class <code>SchoolStrategyVO.java</code> 连接表现层和逻辑层的SchoolStrategyVO
@@ -15,13 +14,8 @@ import com.example.cssnwu.po.SchoolStrategyPO;
  * @since JDK1.7
  */
 public class SchoolStrategyVO extends VO {
-	public int totalCredit;            //总学分
-    public int minCreditPerSemester;   //每学期最低学分要求
-    public String creditArrangeMent;   //学分安排
 	
-	public SchoolStrategyPO toPO() {
-		SchoolStrategyPO schoolStrategyPO = new SchoolStrategyPO();
-		//TODO VO转PO
-		return schoolStrategyPO;
-	}
+	public int totalCredit;            //总学分
+    public int[] minCreditPerSeason = new int[4];   //每学期最低学分要求
+	
 }

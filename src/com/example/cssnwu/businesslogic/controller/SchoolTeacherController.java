@@ -1,5 +1,5 @@
 /**
- * @(#)SchoolTeacherController.java     	2013-10-10 上午10:46:01
+ * @(#)SchoolTeacherController.java     	2013-10-10 上午10:46:01.
  * Copyright never.All rights reserved
  * never PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  */
@@ -17,6 +17,7 @@ import com.example.cssnwu.vo.DepartmentPlanVO;
 import com.example.cssnwu.vo.SchoolStrategyVO;
 import com.example.cssnwu.vo.StudentVO;
 import com.example.cssnwu.vo.TeacherVO;
+import com.example.cssnwu.vo.VO;
 
 /**
  *Class <code>SchoolTeacherController.java</code> 学校教务老师的控制器
@@ -130,6 +131,16 @@ public class SchoolTeacherController implements SchoolTeacherBLService {
 	@Override
 	public ArrayList<StudentVO> getDropStudents() throws RemoteException {
 		return schoolTeacher.getDropStudents();
+	}
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 * @throws RemoteException
+	 */
+	public boolean addNewStudent(ArrayList<VO> list) throws RemoteException
+	{
+		return schoolTeacher.addNewStudent(list);
 	}
   
 }

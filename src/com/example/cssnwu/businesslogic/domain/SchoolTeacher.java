@@ -25,6 +25,8 @@ import com.example.cssnwu.vo.DepartmentPlanVO;
 import com.example.cssnwu.vo.SchoolStrategyVO;
 import com.example.cssnwu.vo.StudentVO;
 import com.example.cssnwu.vo.TeacherVO;
+import com.example.cssnwu.vo.VO;
+import com.example.cssnwu.vo.VoToPo;
 
 /**
  *Class <code>SchoolTeacher.java</code> 学校教务老师的领域类
@@ -46,7 +48,7 @@ public class SchoolTeacher extends DomainObject {
 		strategyDatabaseService = df.getSchoolStrategyDatabaseService();
 		deptPlanDatabaseService = df.getDeptPlanDatabaseService();
 		teacherDatabaseService = df.getTeacherDatabaseService();
-		studentDatabaseService = df.getSchoolStrategyDatabaseService();
+		studentDatabaseService = df.getStudentDatabaseService();
 		courseDatabaseService = df.getCourseDatabaseService();
 	}
 
@@ -59,11 +61,11 @@ public class SchoolTeacher extends DomainObject {
 	 */
 	public INSERT_RESULT realseSchoolStrategy(SchoolStrategyVO schoolStrategyVO) throws RemoteException {
 		//通过ID查看是否已存在
-		if(strategyDatabaseService.find(schoolStrategyVO.id) != null ) {
+		if(strategyDatabaseService.find(schoolStrategyVO.id) != null) {
 			return INSERT_RESULT.ID已经存在;
 		} else {
 			//判断插入操作是否成功
-			if(strategyDatabaseService.insert(schoolStrategyVO.toPO())) {
+			if(strategyDatabaseService.insert(VoToPo.transformSchoolStrategyVO(schoolStrategyVO))) {
 				return INSERT_RESULT.插入成功;
 			} else {
 				return INSERT_RESULT.服务器端错误;
@@ -80,7 +82,7 @@ public class SchoolTeacher extends DomainObject {
 	 */
 	public UPDATE_RESULT modifySchoolStrategy(SchoolStrategyVO schoolStrategyVO) throws RemoteException {
 		//判断更新是否成功
-		if(strategyDatabaseService.update(schoolStrategyVO.toPO())) {
+		if(strategyDatabaseService.update(VoToPo.transformSchoolStrategyVO(schoolStrategyVO))) {
 			return UPDATE_RESULT.更新成功;
 		} else {
 			return UPDATE_RESULT.服务器端错误;
@@ -206,18 +208,38 @@ public class SchoolTeacher extends DomainObject {
 	public ArrayList<StudentVO> getDropStudents() throws RemoteException {
          return getTargetStudents(StudentType.Drop.toString());
 	}
-
+	/**
+	 * Title: addNewStudent
+	 * Description:增加新的学生
+	 * @return
+	 */
+	public boolean addNewStudent(ArrayList<VO> list) throws RemoteException
+	{        
+		for(VO studentVO:list)
+		{
+	       studentDatabaseService.insert(VoToPo.transformStudentVO(((StudentVO)studentVO)));
+	 
+		}
+		return true;
+	}
 	public ArrayList<StudentVO> getTargetStudents(String key) throws RemoteException {
 		ArrayList<StudentVO> studentVOList = new ArrayList<StudentVO>();
 
 		//获取所有符合要求的学生信息
 		ArrayList<PO> studentPOList = studentDatabaseService.find(key);
-
+		if(studentPOList==null)
+		{
+			System.out.println("is null");
+		}
+        System.out.println(studentPOList.size());
 		//po转为VO
-		for(PO po:studentPOList) {
+		if(!studentPOList.isEmpty())
+		{  for(PO po:studentPOList) {
 			studentVOList.add(PoToVo.transformStudentPO((StudentPO)po)); 
+		   }
 		}
 
 		return studentVOList;
 	}
 }
+

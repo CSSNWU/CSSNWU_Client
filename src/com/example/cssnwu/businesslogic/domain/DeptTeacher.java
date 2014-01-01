@@ -53,7 +53,7 @@ public class DeptTeacher extends DomainObject {
     		return INSERT_RESULT.ID已经存在;
     	}
     	//判断插入是否成功
-    	if(deptPlanDatabaseService.insert(departmentPlanVO.toPO())) {
+    	if(deptPlanDatabaseService.insert(VoToPo.transformDepartmentPlanVO(departmentPlanVO))) {
     		return INSERT_RESULT.插入成功;
     	} else {
     		return INSERT_RESULT.服务器端错误;
@@ -69,12 +69,12 @@ public class DeptTeacher extends DomainObject {
      */
     public INSERT_RESULT releaseCourse(CourseVO courseVO) throws RemoteException {
     	//根据课程编号判断是否已经存在该课程
-    	if(courseDatabaseService.find(courseVO.id) != null ) {
+    	if(courseDatabaseService.find(courseVO.id) != null) {
     		return INSERT_RESULT.ID已经存在;
     	}
     	
     	//判断插入是否成功
-    	if(courseDatabaseService.insert(VoToPo.transformCourseVO(courseVO))) {
+    	if(courseDatabaseService.insert((CoursePO)VoToPo.transformCourseVO(courseVO))) {
     		return INSERT_RESULT.插入成功;
     	} else {
     		return INSERT_RESULT.服务器端错误;

@@ -12,6 +12,7 @@ import com.example.cssnwu.businesslogicservice.resultenum.ADD_RESULT;
 import com.example.cssnwu.businesslogicservice.resultenum.DELETE_RESULT;
 import com.example.cssnwu.businesslogicservice.resultenum.MANAGE_RESULT;
 import com.example.cssnwu.businesslogicservice.resultenum.ManageCourseType;
+import com.example.cssnwu.businesslogicservice.resultenum.SYSTEM_STATE;
 import com.example.cssnwu.vo.CourseVO;
 import com.example.cssnwu.vo.ManageCourseVO;
 
@@ -31,6 +32,8 @@ public interface ManageCourseBLService {
 	 * @throws RemoteException 
 	 */
     public ArrayList<CourseVO> getSelectedCourses(int studentId) throws RemoteException;
+    
+
     
     /**
      * Title: addStudent
@@ -72,5 +75,5 @@ public interface ManageCourseBLService {
      * @return    提交结束管理课程操作的结果
      * @throws RemoteException 
      */
-    public MANAGE_RESULT endManage(ManageCourseVO manageCourseVO) throws RemoteException;
+    public MANAGE_RESULT endManage() throws RemoteException;
 }

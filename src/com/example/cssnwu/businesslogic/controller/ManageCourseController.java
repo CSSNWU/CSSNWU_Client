@@ -14,6 +14,7 @@ import com.example.cssnwu.businesslogicservice.resultenum.ADD_RESULT;
 import com.example.cssnwu.businesslogicservice.resultenum.DELETE_RESULT;
 import com.example.cssnwu.businesslogicservice.resultenum.MANAGE_RESULT;
 import com.example.cssnwu.businesslogicservice.resultenum.ManageCourseType;
+import com.example.cssnwu.businesslogicservice.resultenum.SYSTEM_STATE;
 import com.example.cssnwu.vo.CourseVO;
 import com.example.cssnwu.vo.ManageCourseVO;
 
@@ -25,7 +26,7 @@ import com.example.cssnwu.vo.ManageCourseVO;
  * @since JDK1.7
  */
 public class ManageCourseController implements ManageCourseBLService{
-    public static  ManageCourse manageCourse;
+    public ManageCourse manageCourse;
     
     
 	public ManageCourseController() throws RemoteException {
@@ -88,8 +89,10 @@ public class ManageCourseController implements ManageCourseBLService{
 	 * @see com.example.cssnwu.businesslogicservice.bl.ManageCourseBLService#endManage(com.example.cssnwu.vo.ManageCourseVO)
 	 */
 	@Override
-	public MANAGE_RESULT endManage(ManageCourseVO manageCourseVO) throws RemoteException {
-		return manageCourse.endManage(manageCourseVO);
+	public MANAGE_RESULT endManage() throws RemoteException {
+		return manageCourse.endManage();
 	}
+
+	
 
 }

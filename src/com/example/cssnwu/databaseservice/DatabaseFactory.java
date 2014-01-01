@@ -22,5 +22,5 @@ public interface DatabaseFactory extends Remote,Serializable{
     public DatabaseService getSchoolStrategyDatabaseService() throws RemoteException;
     public DatabaseService getUserDatabaseService() throws RemoteException;
     public DatabaseService getStudentDatabaseService() throws RemoteException;
-    public DatabaseService getTeacherDatabaseService() throws RemoteException;    
+    public DatabaseService getTeacherDatabaseService() throws RemoteException;   
 }

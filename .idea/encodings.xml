@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/controller/CourseController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/controller/DeptTeacherController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/controller/LoginController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/controller/ManageCourseController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/controller/SchoolTeacherController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/controller/StudentController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/domain/ManageCourse.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogic/domain/Student.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/bl/LoginBLService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/bl/ManageCourseBLService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/ADD_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/CourseType.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/DELETE_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/Department.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/INSERT_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/LOGIN_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/LOGOUT_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/MANAGE_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/REGISTER_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/TRANSFER_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/UPDATE_RESULT.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/businesslogicservice/resultenum/UserType.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/databaseservice/DatabaseService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/drive/CourseBLService_Drive.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/drive/DeptTeacherBLService_Drive.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/net/ClientLaunch.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/loginui/LoginManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/loginui/LoginUI.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/schoolteacherui/SchoolTeacherUI.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/schoolteacherui/SchoolTeacherUI2.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/studentUI/MyPanel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/studentUI/MyTable.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/presentation/studentUI/StudentUI2.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/stub/DataHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/stub/SchoolTeacherBLService_Stub.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/stub/StubClient.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/stub/StudentBLService_Stub.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/vo/CourseVO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/example/cssnwu/vo/ManageCourseVO.java" charset="GBK" />
+  </component>
+</project>
+

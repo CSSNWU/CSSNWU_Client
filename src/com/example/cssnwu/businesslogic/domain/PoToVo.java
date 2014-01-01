@@ -41,10 +41,10 @@ public class PoToVo {
 		courseVO.courseTime = coursePO.getCourseTime();
 		courseVO.courseType = coursePO.getCourseType();
 		courseVO.credit = coursePO.getCredit();
-		courseVO.establishTime = courseVO.establishTime;
-		for(TeacherPO teacherPO:coursePO.getTeacherList()) {
-			courseVO.teacherList.add(transformTeacherPO(teacherPO));
-		}
+		courseVO.establishTime = coursePO.getEstablishTime();
+		courseVO.teacherIdList = coursePO.getTeacherIdList();
+		courseVO.teacherNameList = coursePO.getTeacherNameList();
+		courseVO.score=coursePO.getScore();
 		
 		return courseVO;
     }
@@ -59,9 +59,13 @@ public class PoToVo {
     	TeacherVO teacherVO = new TeacherVO();
     	//TODO po转化为vo的逻辑
     	teacherVO.id = teacherPO.getId();
+    	teacherVO.userName=teacherPO.getUserName();
     	teacherVO.department = teacherPO.getDepartment();
     	teacherVO.courseList = teacherPO.getCourseList();
-    	
+    	for(int i=0;i<teacherPO.getCoursePOList().size();i++)
+    	{
+    	teacherVO.courseVOList.add(PoToVo.transformCoursePO(teacherPO.getCoursePOList().get(i)));
+    	}
     	return teacherVO;
     }
     
@@ -75,9 +79,10 @@ public class PoToVo {
     	SchoolStrategyVO schoolStrategyVO = new SchoolStrategyVO();
     	//TODO po转化为vo的逻辑
     	schoolStrategyVO.id = schoolStrategyPO.getId();
-    	schoolStrategyVO.minCreditPerSemester = schoolStrategyPO.getMinCreditPerSemester();
+    	for(int i=0;i<schoolStrategyPO.getMinCreditPerSeason().length;i++) {
+    		schoolStrategyVO.minCreditPerSeason[i] = schoolStrategyPO.getMinCreditPerSeason()[i];
+    	}
     	schoolStrategyVO.totalCredit = schoolStrategyPO.getTotalCredit();
-    	schoolStrategyVO.creditArrangeMent = schoolStrategyPO.getCreditArrangeMent();
     	
     	return schoolStrategyVO;
     }
@@ -98,8 +103,9 @@ public class PoToVo {
     	studentVO.userName = studentPO.getUserName();
     	studentVO.userType = studentPO.getUserType();
     	studentVO.targetDepartment = studentPO.getTargetDepartment();
-    	for(CoursePO coursePO:studentPO.getCourseList()) {
-    		studentVO.courseList.add(transformCoursePO(coursePO));
+    	for(CoursePO course:studentPO.getCoursePOList()) {
+    		
+    		studentVO.courseList.add(course.getCourseName());
     	}
     	
     	return studentVO;
@@ -113,14 +119,21 @@ public class PoToVo {
      */
     public static DepartmentPlanVO transformDepartPlanPO(DepartmentPlanPO departmentPlanPO) {
     	DepartmentPlanVO departmentPlanVO = new DepartmentPlanVO();
+         
     	//TODO po转化为vo的逻辑
     	departmentPlanVO.id = departmentPlanPO.getId();
-        departmentPlanVO.date = departmentPlanPO.getDate();
         departmentPlanVO.department = departmentPlanPO.getDepartment();
-        for(CoursePO coursePO:departmentPlanPO.getCourseList()) {
-        	departmentPlanVO.courseList.add(transformCoursePO(coursePO));
+        departmentPlanVO.minCreditPerSeason[0]=departmentPlanPO.minCourseCredits[0];
+        departmentPlanVO.minCreditPerSeason[1]=departmentPlanPO.minCourseCredits[1];
+        departmentPlanVO.minCreditPerSeason[2]=departmentPlanPO.minCourseCredits[2];
+        departmentPlanVO.minCreditPerSeason[3]=departmentPlanPO.minCourseCredits[3];
+        if(!departmentPlanPO.getCourseList().isEmpty())
+        { 	for(CoursePO coursePO:departmentPlanPO.getCourseList()) {
+        		departmentPlanVO.courseList.add(transformCoursePO(coursePO));
+        	}
+        }else{
+        	System.out.println("为空");
         }
-        
         return departmentPlanVO;
     }
 }
